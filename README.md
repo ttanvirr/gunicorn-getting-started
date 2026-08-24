@@ -8,13 +8,13 @@ This Gunicorn getting-started guide is from their [official documentation](https
   - [1.1. Install](#11-install)
     - [1.1.1. Virtual Environment (Recommended)](#111-virtual-environment-recommended)
     - [1.1.2. Verify Installation](#112-verify-installation)
-  - [Create an Application (Django)](#create-an-application-django)
-  - [Run](#run)
-  - [Add Workers](#add-workers)
-  - [Bind to a Port](#bind-to-a-port)
-  - [Configuration File](#configuration-file)
-  - [Print and validate configuration](#print-and-validate-configuration)
-- [Next Steps](#next-steps)
+  - [1.2. Create an Application (Django)](#12-create-an-application-django)
+  - [1.3. Run](#13-run)
+  - [1.4. Add Workers](#14-add-workers)
+  - [1.5. Bind to a Port](#15-bind-to-a-port)
+  - [1.6. Configuration File](#16-configuration-file)
+  - [1.7. Print and validate configuration](#17-print-and-validate-configuration)
+- [2. Next Steps](#2-next-steps)
 
 # 1. Quickstart
 
@@ -60,7 +60,7 @@ gunicorn test_app:app
 # and you will see response "OK"
 ```
 
-## Create an Application (Django)
+## 1.2. Create an Application (Django)
 
 Inside `.venv` install django:
 
@@ -79,7 +79,7 @@ Create a django project
 
 Now, this django project already has a WSGI application at `myproject/wsgi.py`. No additional code is needed.
 
-## Run
+## 1.3. Run
 
 `Terminal`
 
@@ -87,7 +87,7 @@ Now, this django project already has a WSGI application at `myproject/wsgi.py`. 
 $ gunicorn myproject.wsgi
 ```
 
-## Add Workers
+## 1.4. Add Workers
 
 Use multiple workers to handle concurrent requests:
 
@@ -97,7 +97,7 @@ $ gunicorn myproject.wsgi --workers 4
 
 A good starting point rule for number of workers: (`2 * CPU_CORES + 1`) workers. Thus if a server has 2 CPU cores, you could add `2*2+1=5` workers. But you have to consider many other things.
 
-## Bind to a Port
+## 1.5. Bind to a Port
 
 By default Gunicorn binds to `127.0.0.1:8000`. Change it with:
 
@@ -105,7 +105,7 @@ By default Gunicorn binds to `127.0.0.1:8000`. Change it with:
 $ gunicorn myproject.wsgi --bind 0.0.0.0:8080
 ```
 
-## Configuration File
+## 1.6. Configuration File
 
 So far you've been giving Gunicorn options directly on the command line, like:
 
@@ -132,7 +132,7 @@ Gunicorn automatically loads `gunicorn.conf.py` from the current directory.
 > [!NOTE]
 > Options set on the command line override framework settings and values from the configuration file.
 
-## Print and validate configuration
+## 1.7. Print and validate configuration
 
 Print the fully resolved configuration:
 
@@ -148,6 +148,6 @@ $ gunicorn --check-config myproject.wsgi
 
 This is also a quick way to confirm that your application can start.
 
-# Next Steps
+# 2. Next Steps
 
 First learn Nginx basics and come back here to Follow [Deploying Gunicorn](https://gunicorn.org/deploy/)
