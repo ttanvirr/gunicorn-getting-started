@@ -151,4 +151,4 @@ This is also a quick way to confirm that your application can start.
 # 2. Next Steps
 
 - [Nginx basics](https://github.com/ttanvirr/nginx-basics)
-- [Deploy/run Gunicorn behind Nginx proxy server]()
+- [Deploy/run Gunicorn behind Nginx proxy server](https://github.com/ttanvirr/gunicorn-deploy-behind-nginx)
